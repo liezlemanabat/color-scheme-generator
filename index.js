@@ -32,27 +32,7 @@ function renderColorPallete(colorData) {
     const selectedHex = colorData.colors.map(color => `
         <p class="color-hex">${color.hex.value}</p>
     `).join('')
-    document.getElementById('hex-code').innerHTML = selectedHex
-    
-    const colorPalettes = document.querySelectorAll('.color-palette')
-    colorPalettes.forEach(colorPalette => {
-        colorPalette.addEventListener('click', () => {
-            const colorCode = colorPalette.querySelector('.color-hex').innerText
-            
-            // Copy the color code to the clipboard
-            navigator.clipboard.writeText(colorCode)
-
-            // Show the copied message
-            copiedMessage.innerText = `${colorCode} copied to clipboard`
-            copiedMessage.style.display = 'block'
-
-            // Hide the message after a delay (e.g., 2 seconds)
-            setTimeout(() => {
-                copiedMessage.style.display = 'none'
-            }, 2000)
-        });
-    });
-
+    document.getElementById('hex-code').innerHTML = selectedHex  
 }
 
 getInitialColorPalette() 
